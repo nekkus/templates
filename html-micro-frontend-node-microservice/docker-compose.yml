@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+
+  custom_service:
+    build: 
+      context: ./service
+      dockerfile: ./Dockerfile
+    ports:
+      - "5000:5000"
+    networks:
+      - custom_network
+
+  widgets:
+    build:
+      context: ./frontend/widgets
+      dockerfile: ./Dockerfile
+    ports:
+      - "4501:443"
+    networks:
+      - custom_network
+    depends_on: 
+      - custom_service
+
+  app:
+    build:
+      context: ./frontend/app
+      dockerfile: ./Dockerfile
+    ports:
+      - "4500:443"
+    networks:
+      - custom_network
+    depends_on: 
+      - custom_service
+
+networks:
+  custom_network:
+
+  

@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+
+  vuemf:
+    build: 
+      context: ./vue-micro-frontend
+      dockerfile: ./Dockerfile
+    ports:
+      - "8082:8082"
+    networks:
+      - template_network
+
+  reactmf:
+    build:
+      context: ./react-micro-frontend
+      dockerfile: ./Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - template_network
+
+  parent:
+    build:
+      context: ./parent-container
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - template_network
+    depends_on: 
+      - vuemf
+      - reactmf
+
+networks:
+  template_network:
+
+  

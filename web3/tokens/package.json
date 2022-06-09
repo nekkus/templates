@@ -1,0 +1,14 @@
+{
+  "name": "tokens",
+  "version": "1.0.0",
+  "description": "Contracts that handle token and NFT creation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.2"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "widgets",
+  "version": "1.0.0",
+  "description": "micro frontend demo application.",
+  "main": "example.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "license": "MIT"
+}
